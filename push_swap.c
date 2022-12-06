@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/06 13:50:35 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:25:03 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,17 @@ int main(int argc, char *argv[])
 		return (0);	
 	}
 	listb = (void *)0;
-	printf("\nBefore list a \n");
-	ft_display_list(lista);
-	rotate(lista);
-	// swap(lista);
-	// push(&lista, &listb);
-	printf("\nlist a \n");
-	ft_display_list(lista);
-	printf("\nlist b \n");
-	ft_display_list(listb);
+	// printf("\nBefore list a \n");
+	// ft_display_list(lista);
+	rotate(lista, 'a');
+	swap(lista, 'a');
+	push(&lista, &listb, 'b');
+	if (istri(lista) == 1)
+		printf("c'est trié");
+	// printf("\nlist a \n");
+	// ft_display_list(lista);
+	// printf("\nlist b \n");
+	// ft_display_list(listb);
 	ft_clear_list(lista);
 	ft_clear_list(listb);
 	return 0;
