@@ -6,11 +6,23 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/05 15:41:05 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/06 02:37:56 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_display_list(t_list *lista)
+{
+	t_list	*elem;
+	
+	elem = lista;
+	while (elem != NULL)
+	{
+		ft_itoa(elem->nbr);
+		elem = elem->next;
+	}
+}
 
 int	ft_error(char **argv)
 {
@@ -32,6 +44,7 @@ t_list	*ft_init(char **argv)
 	int		i;
 
 	i = 1;
+	list = (void *)0;
 	while (argv[i])
 	{
 		new = ft_lstnew(ft_atoi(argv[i++]));
@@ -45,14 +58,20 @@ int main(int argc, char *argv[])
 	t_list	*lista;
 	t_list	*listb;
 	
-	if (!argv || argc <= 0 || ft_error(argv) == 0)
+	if (argc <= 0 || ft_error(argv) == 0)
 		return (0);
 	lista = ft_init(argv);
 	listb = (void *)0;
-	while (lista)
-	{
-		printf("%d \n", lista->nbr);
-		lista = lista->next;
-	}
+	swap(lista);
+	push(&lista, &listb);
+	push(&lista, &listb);
+	push(&lista, &listb);
+	push(&lista, &listb);
+	printf("\nlist a \n");
+	ft_display_list(lista);
+	printf("\nlist b \n");
+	ft_display_list(listb);
+	ft_clear_list(lista);
+	ft_clear_list(listb);
 	return 0;
 }
