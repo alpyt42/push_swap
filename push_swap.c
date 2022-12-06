@@ -6,35 +6,24 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/06 02:37:56 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:50:35 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_display_list(t_list *lista)
+void	ft_display_list(t_list *list)
 {
 	t_list	*elem;
 	
-	elem = lista;
+	if (!list)
+		return;
+	elem = list;
 	while (elem != NULL)
 	{
 		ft_itoa(elem->nbr);
 		elem = elem->next;
 	}
-}
-
-int	ft_error(char **argv)
-{
-	int	i;
-	
-	i = 1;
-	if (!argv)
-		return (0);
-	while (argv[i])
-		if (ft_atoi(argv[i++]) == 0)
-			return (0);
-	return (1);
 }
 
 t_list	*ft_init(char **argv)
@@ -59,14 +48,23 @@ int main(int argc, char *argv[])
 	t_list	*listb;
 	
 	if (argc <= 0 || ft_error(argv) == 0)
-		return (0);
+	{
+		ft_putstr_fd("Error",1);
+		return (0);	
+	}
 	lista = ft_init(argv);
+	if (ft_check_duplicate(lista) == 0)
+	{
+		ft_putstr_fd("Error",1);
+		ft_clear_list(lista);
+		return (0);	
+	}
 	listb = (void *)0;
-	swap(lista);
-	push(&lista, &listb);
-	push(&lista, &listb);
-	push(&lista, &listb);
-	push(&lista, &listb);
+	printf("\nBefore list a \n");
+	ft_display_list(lista);
+	rotate(lista);
+	// swap(lista);
+	// push(&lista, &listb);
 	printf("\nlist a \n");
 	ft_display_list(lista);
 	printf("\nlist b \n");
