@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/07 14:35:58 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:00:16 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	ft_display_list(t_list *list)
 {
 	t_list	*elem;
 	
-	if (!list)
+	if (list == NULL)
 		return;
+	printf("test");
 	elem = list;
 	while (elem != NULL)
 	{
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
 	t_list	*lista;
 	t_list	*listb;
 	
-	if (argc <= 0 || ft_error(argv) == 0)
+	if (argc <= 1 || ft_error(argv) == 0)
 	{
 		ft_putstr_fd("Error",1);
 		return (0);	
@@ -60,20 +61,25 @@ int main(int argc, char *argv[])
 		return (0);	
 	}
 	listb = (void *)0;
-	printf("\nBefore list a \n");
+	printf("___________\n");
+	printf("argc = %d", argc);
+	printf("\nInit: list a \n");
 	ft_display_list(lista);
-	printf("\n");
 	// rotate(lista, 'a');
 	// swap(lista, 'a');
 	// push(&lista, &listb, 'b');
-	if (argc - 1 <= 3)
+	printf("..........\n");
+	if (argc == 3 || argc == 4)
 		algo_three_nbrs(lista, 'a', argc - 1);
-	if (argc - 1 > 3 && argc - 1 <= 6)
+	if (argc > 4 && argc <= 7)
 		algo_six_nbrs(lista, listb, argc - 1);
-	printf("\nResults: \nlist a \n");
+	printf("..........\n");
+	printf("\nResults: list a \n");
 	ft_display_list(lista);
-	if (istri(lista) == 1)
-		printf("\nc'est trié \n");
+	if (istri(lista) == 1 && ft_lstsize(lista) == argc - 1)
+		printf("\n/'_'\\ CORRECT (sorted & no lost) /'_'\\\n___________\n");
+	else
+		printf("\n/!\\ NOT CORRECT (sorted || lost) /!\\\n___________\n");
 	printf("\nlist b \n");
 	ft_display_list(listb);
 	ft_clear_list(lista);
