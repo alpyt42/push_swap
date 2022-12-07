@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/06 18:25:03 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:35:58 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,23 @@ int main(int argc, char *argv[])
 		return (0);	
 	}
 	listb = (void *)0;
-	// printf("\nBefore list a \n");
-	// ft_display_list(lista);
-	rotate(lista, 'a');
-	swap(lista, 'a');
-	push(&lista, &listb, 'b');
+	printf("\nBefore list a \n");
+	ft_display_list(lista);
+	printf("\n");
+	// rotate(lista, 'a');
+	// swap(lista, 'a');
+	// push(&lista, &listb, 'b');
+	if (argc - 1 <= 3)
+		algo_three_nbrs(lista, 'a', argc - 1);
+	if (argc - 1 > 3 && argc - 1 <= 6)
+		algo_six_nbrs(lista, listb, argc - 1);
+	printf("\nResults: \nlist a \n");
+	ft_display_list(lista);
 	if (istri(lista) == 1)
-		printf("c'est trié");
-	// printf("\nlist a \n");
-	// ft_display_list(lista);
-	// printf("\nlist b \n");
-	// ft_display_list(listb);
+		printf("\nc'est trié \n");
+	printf("\nlist b \n");
+	ft_display_list(listb);
 	ft_clear_list(lista);
 	ft_clear_list(listb);
-	return 0;
+	return (0);
 }
