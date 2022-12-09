@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:30:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/07 12:04:53 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:24:22 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	rotate(t_list *list, char c)
 {
 	int	last;
 	int	tmp;
-	
+
 	if (list == NULL || list->next == NULL)
 		return;
 	last = ft_lstlast(list)->nbr;
@@ -70,7 +70,7 @@ void	rev_rotate(t_list *list, char c)
 {
 	int	tmp;
 	int	tmp_bis;
-	
+
 	if (list == NULL || list->next == NULL)
 		return;
 	tmp = list->nbr;

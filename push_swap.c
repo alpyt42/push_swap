@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 00:51:10 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:24:19 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 	t_list	*listb;
 	int		i;
 	int		*tab;
-	
+
 	i = 0;
 	if (argc <= 1 || ft_error(argv) == 0)
 	{
