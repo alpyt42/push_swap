@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 00:52:59 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 13:21:34 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 13:33:26 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	algo_hundred(t_list *lista, t_list *listb, int argc)
 	
 }
 
-void	check_sens(t_list *top, t_list *bot, t_list *lista)
+int	check_sens(t_list *top, t_list *bot, t_list *lista)
 {
 	t_list	*elem;
 	int		count_top;
@@ -50,6 +50,6 @@ void	check_sens(t_list *top, t_list *bot, t_list *lista)
 	}
 	if (count_top <= count_bot)
 		return (1);
-	else if (count_top > count_bot)
+	else
 		return (2);
 }

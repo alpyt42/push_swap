@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/08 22:51:32 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 13:47:37 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 {
 	int				nbr;
 	struct s_list	*next;
+	struct s_list	*bef;
 }	t_list;
 
 t_list	*ft_lstnew(int nbr);
