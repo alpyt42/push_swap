@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 13:22:12 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:29:02 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	*idx(char *argv[], int argc)
 	j = -1;
 	while (++j < argc - 1)
 	{
-		pos = 1;
+		pos = 0;
 		k = -1;
 		while (++k < argc - 1)
 			if (tab[j] > tab[k])
@@ -55,7 +55,7 @@ void	ft_display_list(t_list *list)
 	}
 }
 
-t_list	*ft_init(int *tab)
+t_list	*ft_init(int *tab, int argc)
 {
 	t_list	*new;
 	t_list	*list;
@@ -63,7 +63,7 @@ t_list	*ft_init(int *tab)
 
 	i = 0;
 	list = (void *)0;
-	while (tab[i] != '\0')
+	while (i < argc - 1)
 	{
 		new = ft_lstnew(tab[i++]);
 		ft_lstadd_back(&list, new);
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 		return (0);	
 	}
 	tab = idx(argv, argc);
-	lista = ft_init(tab);
+	lista = ft_init(tab, argc);
 	free (tab);
 	if (ft_check_duplicate(lista) == 0)
 	{
@@ -94,33 +94,34 @@ int main(int argc, char *argv[])
 		return (0);	
 	}
 	listb = (void *)0;
-	printf("___________\n");
-	printf("argc = %d", argc - 1);
-	printf("\nInit: list a \n");
-	ft_display_list(lista);
+	// printf("___________\n");
+	// printf("argc = %d", argc - 1);
+	// printf("\nInit: list a \n");
+	// ft_display_list(lista);
 	// rotate(lista, 'a');
 	// swap(lista, 'a');
 	// push(&lista, &listb, 'b');
-	printf("..........\n");
+	// printf("..........\n");
 	if (istri(lista))
 	{
 		ft_clear_list(lista);
 		return (0);	
 	}
-	
 	if (argc == 3 || argc == 4)
-		algo_three_nbrs(lista, 'a', argc - 1);
+		algo_three_nbrs(lista, 'a');
 	if (argc > 4 && argc <= 7)
 		algo_six_nbrs(lista, listb, argc - 1);
-	printf("..........\n");
-	printf("\nResults: list a \n");
-	ft_display_list(lista);
-	if (istri(lista) == 1 && ft_lstsize(lista) == argc - 1)
-		printf("\n/'_'\\ CORRECT (sorted & no lost) /'_'\\\n___________\n");
-	else
-		printf("\n/!\\ NOT CORRECT (sorted || lost) /!\\\n___________\n");
-	printf("\nlist b \n");
-	ft_display_list(listb);
+	if (argc > 7)
+		algo_radx(lista, listb, argc);
+	// printf("..........\n");
+	// printf("\nResults: list a \n");
+	// ft_display_list(lista);
+	// if (istri(lista) == 1 && ft_lstsize(lista) == argc - 1)
+	// 	printf("\n/'_'\\ CORRECT (sorted & no lost) /'_'\\\n___________\n");
+	// else
+	// 	printf("\n/!\\ NOT CORRECT (sorted || lost) /!\\\n___________\n");
+	// printf("\nlist b \n");
+	// ft_display_list(listb);
 	ft_clear_list(lista);
 	ft_clear_list(listb);
 	return (0);

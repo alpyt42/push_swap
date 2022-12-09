@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:29:13 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 00:49:32 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:27:47 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	istri(t_list *list)
 	return (1);
 }
 
-void	algo_three_nbrs(t_list *list, char c, int argc)
+void	algo_three_nbrs(t_list *list, char c)
 {
 	int	third;
 
@@ -92,11 +92,11 @@ void	algo_six_nbrs(t_list *lista, t_list *listb, int argc)
 	len = 0;
 	while (++i < argc - 3)
 		push(&lista, &listb, 'b');
-	algo_three_nbrs(lista, 'a', argc);
+	algo_three_nbrs(lista, 'a');
 	if (ft_lstlast(lista)->nbr < ft_lstlast(listb)->nbr && argc == 5)
 		rev_rotate(listb, 'b');
 	else if (argc >= 5)
-		algo_three_nbrs(listb, 'b', argc);
+		algo_three_nbrs(listb, 'b');
 	len += fill_a(&lista, &listb, len);
 	i = -1;
 	while (++i < len && istri(lista) == 0)

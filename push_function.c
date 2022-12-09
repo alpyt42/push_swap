@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:30:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 10:24:22 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:28:38 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	push(t_list **from_list, t_list **to_list, char c)
 		return;
 	tmp = *from_list;
 	*from_list = (*from_list)->next;
+	if ((*from_list))
+		(*from_list)->bef = NULL;
 	tmp->next = *to_list;
 	*to_list = tmp;
 	if (c == 'a')

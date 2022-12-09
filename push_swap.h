@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 13:47:37 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:27:57 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	rev_rotate(t_list *list, char c);
 int		ft_error(char **argv);
 int		ft_check_duplicate(t_list *list);
 int		istri(t_list *list);
-void	algo_three_nbrs(t_list *list, char c, int argc);
+void	algo_three_nbrs(t_list *list, char c);
 void	algo_six_nbrs(t_list *lista, t_list *listb, int argc);
 int		fill_a(t_list **lista, t_list **listb, int len);
 int		*idx(char *argv[], int argc);
+void	algo_radx(t_list *lista, t_list *listb, int argc);
 
 #endif

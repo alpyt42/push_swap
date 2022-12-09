@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   algo_radx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:07:57 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 14:20:50 by ale-cont         ###   ########.fr       */
+/*   Created: 2022/12/09 17:32:54 by ale-cont          #+#    #+#             */
+/*   Updated: 2022/12/09 19:13:55 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	algo_radx(t_list *lista, t_list *listb, int argc)
 {
-	t_list	*toadd;
-	t_list	*before;
+	int	maxbit;
+	int	total;
+	int	i;
+	int	j;
 
-	if (!new)
-		return ;
-	if (!*lst)
+	i = -1;
+	maxbit = 0;
+	total = argc - 1;
+	while ((total >> maxbit) != 0)
+		++maxbit;
+	while (++i < maxbit)
 	{
-		*lst = new;
-		return ;
+		j = -1;
+		while (lista && ++j < total)
+		{
+			if(((lista->nbr >> i) & 1) == 1)
+				rotate(lista, 'a');
+			else
+				push(&lista, &listb, 'b');
+		}
+		while (listb)
+			push(&listb, &lista, 'a');
 	}
-	before = *lst;
-	if (before->next != NULL && before->next->next != NULL)
-		while (before->next->next != NULL)
-			before = before->next;
-	toadd = ft_lstlast(*lst);
-	toadd->next = new;
-	toadd->bef = before;
 }
