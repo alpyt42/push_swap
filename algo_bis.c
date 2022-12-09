@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   algo_bis.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 21:18:11 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/08 19:26:39 by ale-cont         ###   ########.fr       */
+/*   Created: 2022/12/09 00:52:59 by ale-cont          #+#    #+#             */
+/*   Updated: 2022/12/09 01:01:03 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi(char *str)
+void	algo_hundred(t_list *lista, t_list *listb, int argc)
 {
-	size_t	i;
-	int		sign;
-	long	nb;
-
-	i = 0;
-	sign = 1;
-	nb = 0;
-	if (!str || str[0] == '\0')
-		return (2147483649);
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i])
-	{
-		if ((str[i] < '0' || str[i] > '9'))
-			return (2147483649);
-		nb = nb * 10 + str[i++] - 48;
-	}
-	return (sign * nb);
+	
 }

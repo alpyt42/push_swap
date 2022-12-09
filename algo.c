@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:29:13 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/07 20:00:51 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/09 00:49:32 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	algo_three_nbrs(t_list *list, char c, int argc)
 int	fill_a(t_list **lista, t_list **listb, int len)
 {
 	int	max;
-	
+
 	if ((*lista) == NULL)
 		return (0);
 	max = ft_lstlast(*lista)->nbr;
@@ -97,35 +97,8 @@ void	algo_six_nbrs(t_list *lista, t_list *listb, int argc)
 		rev_rotate(listb, 'b');
 	else if (argc >= 5)
 		algo_three_nbrs(listb, 'b', argc);
-	printf("\nlista %d %d %d\n", lista->nbr,lista->next->nbr,lista->next->next->nbr);
-	printf("\nlistb %d %d\n", listb->nbr, listb->next->nbr);
 	len += fill_a(&lista, &listb, len);
 	i = -1;
 	while (++i < len && istri(lista) == 0)
 		rev_rotate(lista, 'a');
-}
-
-t_list	*find_median(t_list *list)
-{
-	t_list	*elem_med;
-	int		min;
-	int		max;
-
-	elem_med = list;
-	min = list->nbr;
-	max = list->nbr;
-	while (elem_med)
-	{
-		if (elem_med->nbr < min)
-			min = elem_med->nbr;
-		elem_med = elem_med->next;
-	}
-	elem_med = list;
-	while (elem_med)
-	{
-		if (elem_med->nbr > max)
-			max = elem_med->nbr;
-		elem_med = elem_med->next;
-	}
-	return (elem_med);
 }
