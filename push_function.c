@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:30:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 19:28:38 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/13 21:01:07 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	swap(t_list *list, char c)
 	list->next->nbr = list->nbr;
 	list->nbr = tmp;
 	if (c == 'a')
-		ft_putstr_fd("sa", 1);
+		ft_putstr_fd("sa", STDOUT_FILENO);
 	else if (c == 'b')
-		ft_putstr_fd("sb", 1);
+		ft_putstr_fd("sb", STDOUT_FILENO);
 }
 
 void	push(t_list **from_list, t_list **to_list, char c)
@@ -40,9 +40,9 @@ void	push(t_list **from_list, t_list **to_list, char c)
 	tmp->next = *to_list;
 	*to_list = tmp;
 	if (c == 'a')
-		ft_putstr_fd("pa", 1);
+		ft_putstr_fd("pa", STDOUT_FILENO);
 	else if (c == 'b')
-		ft_putstr_fd("pb", 1);
+		ft_putstr_fd("pb", STDOUT_FILENO);
 }
 
 void	rotate(t_list *list, char c)
@@ -63,9 +63,9 @@ void	rotate(t_list *list, char c)
 	}
 	list->nbr = last;
 	if (c == 'a')
-		ft_putstr_fd("ra", 1);
+		ft_putstr_fd("ra", STDOUT_FILENO);
 	else if (c == 'b')
-		ft_putstr_fd("rb", 1);
+		ft_putstr_fd("rb", STDOUT_FILENO);
 }
 
 void	rev_rotate(t_list *list, char c)
@@ -86,7 +86,7 @@ void	rev_rotate(t_list *list, char c)
 		list = list->next;
 	}
 	if (c == 'a')
-		ft_putstr_fd("rra", 1);
+		ft_putstr_fd("rra", STDOUT_FILENO);
 	else if (c == 'b')
-		ft_putstr_fd("rrb", 1);
+		ft_putstr_fd("rrb", STDOUT_FILENO);
 }

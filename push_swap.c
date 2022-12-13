@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 19:29:02 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/13 20:55:12 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,27 +71,25 @@ t_list	*ft_init(int *tab, int argc)
 	return (list);
 }
 
-int main(int argc, char *argv[])
+int main (int argc, char *argv[])
 {
 	t_list	*lista;
 	t_list	*listb;
-	int		i;
 	int		*tab;
 
-	i = 0;
 	if (argc <= 1 || ft_error(argv) == 0)
 	{
-		ft_putstr_fd("Error",1);
-		return (0);	
+		ft_putstr_fd("Error", STDERR_FILENO);
+		return (0);
 	}
 	tab = idx(argv, argc);
 	lista = ft_init(tab, argc);
 	free (tab);
 	if (ft_check_duplicate(lista) == 0)
 	{
-		ft_putstr_fd("Error",1);
+		ft_putstr_fd("Error", STDERR_FILENO);
 		ft_clear_list(lista);
-		return (0);	
+		return (0);
 	}
 	listb = (void *)0;
 	// printf("___________\n");
@@ -102,17 +100,15 @@ int main(int argc, char *argv[])
 	// swap(lista, 'a');
 	// push(&lista, &listb, 'b');
 	// printf("..........\n");
-	if (istri(lista))
+	if (!istri(lista))
 	{
-		ft_clear_list(lista);
-		return (0);	
-	}
-	if (argc == 3 || argc == 4)
+		if (argc == 3 || argc == 4)
 		algo_three_nbrs(lista, 'a');
-	if (argc > 4 && argc <= 7)
-		algo_six_nbrs(lista, listb, argc - 1);
-	if (argc > 7)
-		algo_radx(lista, listb, argc);
+		if (argc > 4 && argc <= 7)
+			algo_six_nbrs(lista, listb, argc - 1);
+		if (argc > 7)
+			algo_radx(lista, listb, argc);
+	}
 	// printf("..........\n");
 	// printf("\nResults: list a \n");
 	// ft_display_list(lista);
