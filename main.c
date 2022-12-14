@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:45:33 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 14:48:11 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:27:56 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main (int argc, char *argv[])
 	int		*res;
 	int		size;
 
+	if (argv[1] == NULL && argc == 1)
+		return (0);
 	size = parse_args(argc, &argv);
 	if (argc <= 1 || size == 0)
 	{
@@ -35,9 +37,6 @@ int main (int argc, char *argv[])
 	// printf("size = %d", size);
 	// printf("\nInit: list a \n");
 	// ft_display_list(lista);
-	// rotate(lista, 'a');
-	// swap(lista, 'a');
-	// push(&lista, &listb, 'b');
 	// printf("..........\n");
 	if (!istri(lista))
 	{
@@ -45,8 +44,8 @@ int main (int argc, char *argv[])
 			algo_three_nbrs(lista, 'a');
 		if (size > 3 && size <= 6)
 			algo_six_nbrs(lista, listb, size);
-		// if (size > 6)
-		// 	algo_radx(lista, listb, size);
+		if (size > 6)
+			algo_radx(lista, listb, size);
 	}
 	// printf("..........\n");
 	// printf("\nResults: list a \n");

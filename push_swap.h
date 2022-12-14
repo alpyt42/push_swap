@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 12:24:36 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:43:54 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_error(char **argv);
 int		istri(t_list *list);
 void	algo_three_nbrs(t_list *list, char c);
 void	algo_six_nbrs(t_list *lista, t_list *listb, int argc);
-int		fill_a(t_list **lista, t_list **listb, int len);
+void	fill_a(t_list **lista, t_list **listb);
 int		*idx(char *argv[], int argc);
 void	algo_radx(t_list *lista, t_list *listb, int argc);
 int		parse_args(int argc, char ***argv);
@@ -58,5 +58,6 @@ char	*ft_strjoin(char *left_str, char *buf);
 int		*idx(char *argv[], int argc);
 void	ft_display_list(t_list *list);
 t_list	*ft_init(int *tab, int argc);
+int		extrem_nbr(t_list *list, int inpt);
 
 #endif
