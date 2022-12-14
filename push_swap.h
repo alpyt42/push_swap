@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/09 19:27:57 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:24:36 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_list
 	struct s_list	*bef;
 }	t_list;
 
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 t_list	*ft_lstnew(int nbr);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -41,12 +43,20 @@ void	push(t_list **from_list, t_list **to_list, char c);
 void	rotate(t_list *list, char c);
 void	rev_rotate(t_list *list, char c);
 int		ft_error(char **argv);
-int		ft_check_duplicate(t_list *list);
 int		istri(t_list *list);
 void	algo_three_nbrs(t_list *list, char c);
 void	algo_six_nbrs(t_list *lista, t_list *listb, int argc);
 int		fill_a(t_list **lista, t_list **listb, int len);
 int		*idx(char *argv[], int argc);
 void	algo_radx(t_list *lista, t_list *listb, int argc);
+int		parse_args(int argc, char ***argv);
+int		ft_check_duplicate(int size, int *list);
+char	**ft_split(char const *s, char c);
+int		ft_strlen(char *str);
+int		ft_count_words(char *str, char c);
+char	*ft_strjoin(char *left_str, char *buf);
+int		*idx(char *argv[], int argc);
+void	ft_display_list(t_list *list);
+t_list	*ft_init(int *tab, int argc);
 
 #endif
