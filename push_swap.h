@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:33:56 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:41:06 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 long	ft_atoi(char *str);
 void	ft_clear_list(t_list *lst);
-void	ft_display_list(t_list *lista);
 void	ft_itoa(int n);
 void	ft_putstr_fd(char *s, int fd);
 void	swap(t_list *list, char c);
