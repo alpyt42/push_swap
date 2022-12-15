@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:38:00 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 14:31:47 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:08:47 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,6 @@ char	*ft_strjoin(char *left_str, char *buf)
 			str[i] = left_str[i];
 	while (buf[j] != '\0')
 		str[i++] = buf[j++];
-	// printf("i:%zu\n", i);
-	// printf("str1:%s\n", str);
 	str[ft_strlen(left_str) + ft_strlen(buf)] = ' ';
-	// printf("str:%s\n", str);
-	// printf("left:%s\n", left_str);
-	// printf("buf:%s\n\n", buf);
 	return (free(left_str), str);
 }

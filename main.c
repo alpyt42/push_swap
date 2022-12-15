@@ -6,13 +6,26 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:45:33 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 11:59:49 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:05:17 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int argc, char *argv[])
+static void	ft_action(t_list *lista, t_list *listb, int size)
+{
+	if (!istri(lista))
+	{
+		if (size == 2 || size == 3)
+			algo_three_nbrs(lista, 'a');
+		if (size > 3 && size <= 6)
+			algo_six_nbrs(lista, listb, size);
+		if (size > 6)
+			algo_radx(lista, listb, size);
+	}
+}
+
+int	main(int argc, char *argv[])
 {
 	t_list	*lista;
 	t_list	*listb;
@@ -29,29 +42,7 @@ int main (int argc, char *argv[])
 	free (res);
 	ft_freeall(argv, size);
 	listb = (void *)0;
-	// printf("___________\n");
-	// printf("size = %d", size);
-	// printf("\nInit: list a \n");
-	// ft_display_list(lista);
-	// printf("..........\n");
-	if (!istri(lista))
-	{
-		if (size == 2 || size == 3)
-			algo_three_nbrs(lista, 'a');
-		if (size > 3 && size <= 6)
-			algo_six_nbrs(lista, listb, size);
-		if (size > 6)
-			algo_radx(lista, listb, size);
-	}
-	// printf("..........\n");
-	// printf("\nResults: list a \n");
-	// ft_display_list(lista);
-	// if (istri(lista) == 1 && ft_lstsize(lista) == size)
-	// 	printf("\n/'_'\\ CORRECT (sorted & no lost) /'_'\\\n___________\n");
-	// else
-	// 	printf("\n/!\\ NOT CORRECT (sorted || lost) /!\\\n___________\n");
-	// printf("\nlist b \n");
-	// ft_display_list(listb);
+	ft_action(lista, listb, size);
 	ft_clear_list(lista);
 	ft_clear_list(listb);
 	return (0);

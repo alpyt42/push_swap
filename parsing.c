@@ -6,13 +6,13 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 11:24:45 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:31:44 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*extract_values(int size, char **argv)
+static int	*extract_values(int size, char **argv)
 {
 	int	j;
 	int	*values;
@@ -26,7 +26,7 @@ int	*extract_values(int size, char **argv)
 	return (values);
 }
 
-int	ft_check_duplicate(int size, int *list)
+static int	ft_check_duplicate(int size, int *list)
 {
 	int		i;
 	int		j;
@@ -50,10 +50,10 @@ int	ft_check_duplicate(int size, int *list)
 
 int	parse_args(int argc, char ***argv)
 {
-	int i;
-	int size;
-	int *values;
-	char *char_values;
+	int		i;
+	int		size;
+	int		*values;
+	char	*char_values;
 
 	i = 1;
 	char_values = NULL;

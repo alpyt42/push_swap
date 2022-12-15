@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:30:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/13 21:01:07 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:10:09 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap(t_list *list, char c)
 	int	tmp;
 
 	if (list == NULL || list->next == NULL)
-		return;
+		return ;
 	tmp = list->next->nbr;
 	list->next->nbr = list->nbr;
 	list->nbr = tmp;
@@ -32,7 +32,7 @@ void	push(t_list **from_list, t_list **to_list, char c)
 	t_list	*tmp;
 
 	if (*from_list == NULL)
-		return;
+		return ;
 	tmp = *from_list;
 	*from_list = (*from_list)->next;
 	if ((*from_list))
@@ -51,7 +51,7 @@ void	rotate(t_list *list, char c)
 	int	tmp;
 
 	if (list == NULL || list->next == NULL)
-		return;
+		return ;
 	last = ft_lstlast(list)->nbr;
 	ft_lstlast(list)->nbr = list->nbr;
 	while (list->next->next != NULL)
@@ -74,7 +74,7 @@ void	rev_rotate(t_list *list, char c)
 	int	tmp_bis;
 
 	if (list == NULL || list->next == NULL)
-		return;
+		return ;
 	tmp = list->nbr;
 	list->nbr = ft_lstlast(list)->nbr;
 	list = list->next;

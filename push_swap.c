@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 14:19:10 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:33:17 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,6 @@ int	*idx(char *argv[], int size)
 		res[j] = pos;
 	}
 	return (free(tab), res);
-}
-
-void	ft_display_list(t_list *list)
-{
-	t_list	*elem;
-
-	if (list == NULL)
-		return ;
-	elem = list;
-	while (elem != NULL)
-	{
-		ft_itoa(elem->nbr);
-		elem = elem->next;
-	}
 }
 
 t_list	*ft_init(int *tab, int size)

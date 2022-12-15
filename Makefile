@@ -2,9 +2,9 @@ NAME = push_swap
 
 HEADERS = push_swap.h
 
-SOURCES = ft_lstadd_back.c ft_lstadd_front.c algo.c ft_lstlast.c ft_lstnew.c \
-		algo_radx.c ft_lstsize.c push_function.c ft_atoi.c push_swap.c ft_clear_list.c ft_itoa.c \
-		ft_bzero.c parsing.c main.c ft_strjoin.c ft_split.c ft_calloc.c \
+SOURCES = ft_clear_list.c ft_strjoin.c algo.c ft_lstadd_back.c  main.c algo_radx.c ft_lstadd_front.c \
+		parsing.c ft_lstlast.c push_function.c ft_lstnew.c push_swap.c ft_atoi.c ft_lstsize.c \
+		ft_bzero.c ft_putstr.c ft_calloc.c ft_split.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

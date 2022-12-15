@@ -6,58 +6,42 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:29:13 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 18:13:17 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:29:39 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	extrem_nbr(t_list *list, int inpt)
+static int	max_nbr(t_list *list)
 {
-	t_list	*elem;
 	int		nbr;
+	t_list	*elem;
 
+	nbr = INT_MIN;
 	elem = list;
-	if (!list)
-		return (0);
-	if (inpt == 1)
+	while (elem != NULL)
 	{
-		nbr = 0;
-		while (elem != NULL)
-		{
-			if (elem->nbr > nbr)
-				nbr = elem->nbr;
-			elem = elem->next;
-		}
-		return (nbr);
-	}
-	else
-	{
-		nbr = 501;
-		while (elem != NULL)
-		{
-			if (elem->nbr < nbr)
-				nbr = elem->nbr;
-			elem = elem->next;
-		}
+		if (elem->nbr > nbr)
+			nbr = elem->nbr;
+		elem = elem->next;
 	}
 	return (nbr);
 }
 
-int	istri(t_list *list)
+static int	min_nbr(t_list *list)
 {
+	int		nbr;
 	t_list	*elem;
 
-	if (list == NULL)
-		return (1);
+	nbr = INT_MAX;
 	elem = list;
-	while (elem->next)
+	while (elem != NULL)
 	{
-		if (elem->nbr > elem->next->nbr)
-			return (0);
+		if (elem->nbr < nbr)
+			nbr = elem->nbr;
 		elem = elem->next;
 	}
-	return (1);
+	return (nbr);
 }
 
 void	algo_three_nbrs(t_list *list, char c)
@@ -88,34 +72,29 @@ void	algo_three_nbrs(t_list *list, char c)
 	}
 }
 
-void	fill_a(t_list **lista, t_list **listb)
+static void	fill_a(t_list **lista, t_list **listb)
 {
-	int	max;
-	int	min;
-
 	while ((*listb) != NULL)
 	{
-		max = extrem_nbr((*lista), 1);
-		min = extrem_nbr((*lista), 0);
-		if ((*listb) != NULL && (*listb)->nbr < min && (*lista)->nbr == min)
+		if ((*listb) != NULL && (*listb)->nbr < min_nbr((*lista))
+			&& (*lista)->nbr == min_nbr((*lista)))
 			push(&(*listb), &(*lista), 'a');
-		if ((*listb) != NULL && (*listb)->nbr > max 
-			&& ft_lstlast((*lista))->nbr == max)
+		if ((*listb) != NULL && (*listb)->nbr > max_nbr((*lista))
+			&& ft_lstlast((*lista))->nbr == max_nbr((*lista)))
 		{
 			push(&(*listb), &(*lista), 'a');
 			rotate((*lista), 'a');
 		}
-		max = extrem_nbr((*lista), 1);
-		min = extrem_nbr((*lista), 0);
 		if ((*listb) == NULL)
 			return ;
-		if ((*listb)->nbr > min && (*listb)->nbr < max)
+		if ((*listb)->nbr > min_nbr((*lista))
+			&& (*listb)->nbr < max_nbr((*lista)))
 		{
 			while ((*listb)->nbr > (*lista)->nbr)
 				rotate((*lista), 'a');
 			push(&(*listb), &(*lista), 'a');
 		}
-		else if (ft_lstlast(*lista)->nbr != max)
+		else if (ft_lstlast(*lista)->nbr != max_nbr((*lista)))
 			rotate((*lista), 'a');
 	}
 }
