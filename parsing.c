@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:31:44 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:48:35 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,30 @@ static int	ft_check_duplicate(int size, int *list)
 		i++;
 	}
 	return (0);
+}
+
+static int	ft_count_words(char *str, char c)
+{
+	int	size;
+	int	i;
+
+	size = 0;
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		if (str[i] != c)
+		{
+			size++;
+			while (str[i] != c)
+			i++;
+		}
+		else
+			while (str[i] == c)
+				i++;
+	}
+	return (size);
 }
 
 int	parse_args(int argc, char ***argv)

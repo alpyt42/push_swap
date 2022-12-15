@@ -6,13 +6,13 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:38:00 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:08:47 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:48:23 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
 	int	len;
 
@@ -22,30 +22,6 @@ int	ft_strlen(char *str)
 		len++;
 	}
 	return (len);
-}
-
-int	ft_count_words(char *str, char c)
-{
-	int	size;
-	int	i;
-
-	size = 0;
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			size++;
-			while (str[i] != c)
-			i++;
-		}
-		else
-			while (str[i] == c)
-				i++;
-	}
-	return (size);
 }
 
 char	*ft_strjoin(char *left_str, char *buf)
