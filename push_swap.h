@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:48:48 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:56:35 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 
