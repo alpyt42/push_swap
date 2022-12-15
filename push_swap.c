@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:17:37 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:33:17 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:52:41 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	*idx(char *argv[], int size)
 	res = (int *)ft_calloc(sizeof(int), size);
 	tab = (int *)ft_calloc(sizeof(int), size);
 	if (!res || !tab)
-		return ((void *)0);
+		return (NULL);
 	j = -1;
 	while (++j < size)
 		tab[j] = ft_atoi(argv[j]);
