@@ -6,13 +6,13 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:22:45 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 11:23:09 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:11:50 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	**ft_freeall(char **res, size_t args)
+char	**ft_freeall(char **res, size_t args)
 {
 	size_t	i;
 

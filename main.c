@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:45:33 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 18:27:56 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:59:49 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,15 @@ int main (int argc, char *argv[])
 	int		*res;
 	int		size;
 
-	if (argv[1] == NULL && argc == 1)
+	if (argv[1][0] == '\0' && argc == 2)
 		return (0);
 	size = parse_args(argc, &argv);
 	if (argc <= 1 || size == 0)
-	{
-		ft_putstr_fd("Error", STDERR_FILENO);
-		return (0);
-	}
-	// printf("argv%s\n", argv[0]);
-	// printf("size%d\n", size);
+		return (ft_putstr_fd("Error", STDERR_FILENO), 0);
 	res = idx(argv, size);
 	lista = ft_init(res, size);
 	free (res);
+	ft_freeall(argv, size);
 	listb = (void *)0;
 	// printf("___________\n");
 	// printf("size = %d", size);

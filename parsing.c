@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/14 14:15:48 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:24:45 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*extract_values(int size, char **argv)
 	int	*values;
 
 	j = -1;
-	values = (int *)malloc(sizeof(int) * (size + 1));
+	values = (int *)ft_calloc(sizeof(int), size);
 	if (!values)
 		return ((void *)0);
 	while (++j < size)
@@ -59,27 +59,20 @@ int	parse_args(int argc, char ***argv)
 	char_values = NULL;
 	while (i < argc)
 		char_values = ft_strjoin(char_values, (*argv)[i++]);
-	// printf("char values: %s\n", char_values);
-	// printf("i:%d\n", i);
 	size = ft_count_words(char_values, ' ');
-	// printf("size:%d\n", size);
 	*argv = ft_split(char_values, ' ');
-	// printf("argv[0]%s\n", (*argv)[0]);
-	// printf("argv[1]%s\n", (*argv)[1]);
-	// printf("argv[2]%s\n", (*argv)[2]);
-	// printf("argv[3]%s\n", (*argv)[3]);
-	// printf("argv[4]%s\n", (*argv)[4]);
-	// printf("argv[5]%s\n", (*argv)[5]);
 	free(char_values);
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
 		if (ft_atoi((*argv)[i]) > INT_MAX || ft_atoi((*argv)[i]) < INT_MIN)
-			return (0);
-		i++;
+			return (ft_freeall((*argv), size), 0);
 	}
 	values = extract_values(size, (*argv));
 	if (ft_check_duplicate(size, values))
+	{
+		ft_freeall((*argv), size);
 		return (free(values), 0);
+	}
 	return (free(values), size);
 }
