@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:11:21 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:56:35 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:56:03 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
