@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:17 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 12:48:35 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:51:55 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ int	parse_args(int argc, char ***argv)
 	while (++i < size)
 	{
 		if (ft_atoi((*argv)[i]) > INT_MAX || ft_atoi((*argv)[i]) < INT_MIN)
-			return (ft_freeall((*argv), size), 0);
+			return (ft_freeall((*argv), size), -1);
 	}
 	values = extract_values(size, (*argv));
 	if (ft_check_duplicate(size, values))
 	{
 		ft_freeall((*argv), size);
-		return (free(values), 0);
+		return (free(values), -1);
 	}
 	return (free(values), size);
 }

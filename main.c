@@ -6,11 +6,31 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:45:33 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/15 14:22:10 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:15:29 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int check_format(char **argv)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	i = 0;
+	while (argv[++i])
+	{
+		j = -1;
+		len = 0;
+		while (argv[i][++j])
+			if (argv[i][j] >= '0' && argv[i][j] <= '9')
+				len++;
+		if (len == 0)
+			return (0);
+	}
+	return (1);
+}
 
 static void	ft_action(t_list *lista, t_list *listb, int size)
 {
@@ -34,9 +54,13 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1 || (argv[1][0] == '\0' && argc == 2))
 		return (0);
-	size = parse_args(argc, &argv);
-	if (size == 0)
+	if (check_format(argv) == 0)
 		return (ft_putstr_fd("Error", STDERR_FILENO), 0);
+	size = parse_args(argc, &argv);
+	if (size == -1)
+		return (ft_putstr_fd("Error", STDERR_FILENO), 0);
+	else if (size == 0)
+		return (0);
 	res = idx(argv, size);
 	lista = ft_init(res, size);
 	free (res);

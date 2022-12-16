@@ -6,7 +6,7 @@
 /*   By: ale-cont <ale-cont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:18:11 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/12/13 20:26:27 by ale-cont         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:01:11 by ale-cont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	nb = 0;
-	if (!str || str[0] == '\0')
+	if (!str)
 		return (2147483649);
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -35,7 +35,5 @@ long	ft_atoi(char *str)
 			return (2147483649);
 		nb = nb * 10 + str[i++] - 48;
 	}
-	if (sign == -1 && nb == 0)
-		return (2147483649);
 	return (sign * nb);
 }
